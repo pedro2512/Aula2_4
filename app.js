@@ -1,3 +1,4 @@
+/* Imports */
 import express from 'express';
 import mongoose from 'mongoose';
 import { studentRouter } from './routes/studentRouter.js';
@@ -6,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(studentRouter);
 
+/* Conexao com o mongoDB */
 mongoose
   .connect(
     'mongodb+srv://dbUser:123456789bootCamp@cluster0.oosiu.mongodb.net/grades?retryWrites=true&w=majority',
