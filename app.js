@@ -2,10 +2,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import { studentRouter } from './routes/studentRouter.js';
+import dotenv from 'dotenv';
 
 const app = express();
 
-require('dotenv').config();
+dotenv.config();
 
 app.use(express.json());
 app.use(studentRouter);
@@ -24,4 +25,5 @@ mongoose
   .then(console.log('Conectado ao mongodb Atlas'))
   .catch((err) => console.log(err));
 
-app.listen('{ $process.env.PORT }', () => console.log('API INICIADA'));
+//'{ $process.env.PORT }'
+app.listen(process.env.PORT, () => console.log('API INICIADA'));
