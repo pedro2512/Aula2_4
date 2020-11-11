@@ -54,4 +54,19 @@ app.delete('/student/:id', async (req, res) => {
     res.status(500).send(err);
   }
 });
+
+app.put('/student/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const student = await studentModel.findByIdAndDelete({ _id: id });
+    if (!student) {
+      res.status(404).send('Documento nao encontrado');
+    } else {
+      res.status(200).send('Ok');
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 export { app as studentRouter };
