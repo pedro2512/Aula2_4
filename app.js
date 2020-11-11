@@ -24,4 +24,4 @@ mongoose
   .then(console.log('Conectado ao mongodb Atlas'))
   .catch((err) => console.log(err));
 
-app.listen(3000, () => console.log('API INICIADA'));
+app.listen('{ $process.env.PORT }', () => console.log('API INICIADA'));
